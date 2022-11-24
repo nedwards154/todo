@@ -1,0 +1,32 @@
+<%- include('header'); -%>
+<body>
+    <div class="box">
+        <% if (nameOfTheDay === "Saturday" || nameOfTheDay === "Sunday") { %>
+            <h1><%= nameOfTheDay %></h1>
+        <% } else { %>
+            <h1><%= nameOfTheDay %></h1>
+        <% } %>
+    </div>
+
+    <div class="box">
+       <form action="/delete" method="post">
+            <% for( let index = 0; index < newItem.length; index++ ) { %>
+                <div class="item">
+                    <input type="checkbox" name="checkbox" value=<%= newItem[index]._id %> onchange="this.form.submit()">
+                    <p><%= newItem[index].itemName %> </p>
+                </div>
+            <% } %>
+        </form>
+
+
+        <form class="item" action="/" method="post">
+            <input type="text" name="newItem" autocomplete="off">
+            <button type="submit" name="button" value=<%= nameOfTheDay %>>+</button>
+        </form>
+        
+    </div>
+
+   
+  
+</body>
+<%- include('footer'); -%>
