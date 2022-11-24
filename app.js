@@ -2,6 +2,7 @@ const express = require("express")
 const bodyParser = require("body-parser")
 const date = require(__dirname + "/date.js")
 const mongoose = require('mongoose');
+const port = process.env.PORT || 3001;
 
 mongoose.connect('mongodb+srv://nedwards154:Test123@cluster0.jubrz2e.mongodb.net/tododb');
 
@@ -110,6 +111,6 @@ app.get("/about", function(req, res){
     res.render("aboutus")
 })
 
-app.listen(3004, function(){
-    console.log("Server started on port 3004")
+app.listen(port, function(){
+    console.log("Server started on " + port)
 })
